@@ -29,5 +29,7 @@ namespace RelogioPonto.Models
         {
             return new ApplicationDbContext();
         }
-    }
+
+		public System.Data.Entity.DbSet<RelogioPonto.Models.Relogio> Relogios { get; set; }
+	}
 }
