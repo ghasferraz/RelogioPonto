@@ -22,3 +22,28 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.caixa {
+    border-radius: 25px;
+    box-shadow: 2px 2px 1px 1px gray;
+    background-color: aliceblue;
+    border-top: 6px solid #10afbf;
+    overflow: auto;
+    padding-bottom: 40px;
+    margin-top:40px;
+}
+
+.caixaCreate {
+    border-radius: 25px;
+    box-shadow: 2px 2px 1px 1px gray;
+    background-color: aliceblue;
+    border-top:6px solid #10afbf;
+    /*overflow: auto;*/
+    padding-bottom: 40px;
+    margin-top: 40px;
+}
+
+.paddingtop {
+    margin-top: 40px;
+}
+

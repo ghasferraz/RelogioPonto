@@ -196,9 +196,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709271406219_Criacao da classe Relogio.cs" />
-    <Compile Include="Migrations\201709271406219_Criacao da classe Relogio.Designer.cs">
-      <DependentUpon>201709271406219_Criacao da classe Relogio.cs</DependentUpon>
+    <Compile Include="Migrations\201709281509326_migracao inicial.cs" />
+    <Compile Include="Migrations\201709281509326_migracao inicial.Designer.cs">
+      <DependentUpon>201709281509326_migracao inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -288,8 +288,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709271406219_Criacao da classe Relogio.resx">
-      <DependentUpon>201709271406219_Criacao da classe Relogio.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709281509326_migracao inicial.resx">
+      <DependentUpon>201709281509326_migracao inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
