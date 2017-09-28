@@ -7,13 +7,13 @@ namespace RelogioPonto.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CriacaodaclasseRelogio : IMigrationMetadata
+    public sealed partial class migracaoinicial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CriacaodaclasseRelogio));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(migracaoinicial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709271406219_Criacao da classe Relogio"; }
+            get { return "201709281509326_migracao inicial"; }
         }
         
         string IMigrationMetadata.Source
