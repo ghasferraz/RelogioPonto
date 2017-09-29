@@ -7,13 +7,13 @@ namespace RelogioPonto.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Adiconarenum : IMigrationMetadata
+    public sealed partial class Adicaodoenum : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Adiconarenum));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Adicaodoenum));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709291242004_Adiconar enum"; }
+            get { return "201709291317285_Adicao do enum"; }
         }
         
         string IMigrationMetadata.Source
