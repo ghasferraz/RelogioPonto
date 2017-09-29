@@ -53,7 +53,7 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 		// obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create([Bind(Include = "Id,Nome,Descricao,Login,Senha,Ip")] Relogio relogio)
+		public ActionResult Create([Bind(Include = "Id,Nome,Descricao,Status,Login,Senha,Ip")] Relogio relogio)
 		{
 			if (ModelState.IsValid)
 			{
@@ -214,7 +214,7 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 		// obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit([Bind(Include = "Id,Nome,Descricao,Login,Senha,Ip")] Relogio relogio)
+		public ActionResult Edit([Bind(Include = "Id,Nome,Descricao,Status,Login,Senha,Ip")] Relogio relogio)
 		{
 			if (ModelState.IsValid)
 			{
