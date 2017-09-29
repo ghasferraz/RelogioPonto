@@ -10,12 +10,8 @@ using RelogioPonto.Models;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.Text;
-using System.Configuration;
-using System.Diagnostics;
 
-namespace RelogioPonto.Controllers.ControladorRelogio
+namespace RelogioPonto.Controllers.RelogioControlador
 {
 	public class RelogiosController : Controller
 	{
@@ -53,7 +49,7 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 		// obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create([Bind(Include = "Id,Nome,Descricao,Login,Senha,Ip")] Relogio relogio)
+		public ActionResult Create([Bind(Include = "Id,Nome,Descricao,Status,Login,Senha,Ip")] Relogio relogio)
 		{
 			if (ModelState.IsValid)
 			{
@@ -94,7 +90,6 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 
 			}
 		}
-
 		public async System.Threading.Tasks.Task SincronizaTeste()
 		{
 			string page = "http://www.santacasasaocarlos.com.br/Noticias/Categorias/Todas";
@@ -133,9 +128,6 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 				}
 			}
 
-
-
-
 		}
 		public async Task<string> Relogio()
 		{
@@ -169,7 +161,7 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 
 					}
 
-				//	var result = await response.Content.ReadAsStringAsync();
+					//	var result = await response.Content.ReadAsStringAsync();
 					uri = new Uri(string.Format("http://192.168.22.208/" + @"info?_=1506617975243", string.Empty));
 
 					var response2 = await client.GetAsync(uri);
@@ -181,9 +173,6 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 					}
 				}
 
-
-
-
 			}
 
 			catch (Exception ex)
@@ -194,6 +183,51 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 
 
 		}
+		public async System.Threading.Tasks.Task VerificaStatusImpressora()
+		{
+			string page = "http://192.168.22.208/InnerRepPlus.html";
+			IList<string> Links = new List<string>();
+			using (HttpClient client = new HttpClient())
+			using (HttpResponseMessage response = await client.GetAsync(page))
+			using (HttpContent content = response.Content)
+			{
+				// ... Read the string.
+				string result = await content.ReadAsStringAsync();
+				//Regex regex1 = new Regex(@"<h4 class=""text-center text-descricao"">(.*?)</h4>", RegexOptions.Singleline);
+				Regex regexTagImg = new Regex(@"<img id=""StatusImpressora""style=""border-radius: 3px 3px 3px 3px""src=""pronta2.jpg""", RegexOptions.Singleline);
+				//var Matches = regex1.Matches(result);
+				var Matche = regexTagImg.Matches(result);
+
+
+				foreach (Match m in Matche)
+				{
+					var Matche3 = regexTagImg.Match(result);
+					Links.Add(m.Groups[1].ToString());
+				}
+				int i;
+				i = 1;
+
+
+			}
+			foreach (string l in Links)
+			{
+				using (HttpClient client = new HttpClient())
+				using (HttpResponseMessage response = await client.GetAsync("http://www.santacasasaocarlos.com.br" + l))
+				using (HttpContent content = response.Content)
+				{
+					// ... Read the string.
+					string result = await content.ReadAsStringAsync();
+
+				}
+			}
+
+
+
+
+		}
+
+
+
 		// GET: Relogios/Edit/5
 		public ActionResult Edit(int? id)
 		{
@@ -214,7 +248,7 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 		// obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit([Bind(Include = "Id,Nome,Descricao,Login,Senha,Ip")] Relogio relogio)
+		public ActionResult Edit([Bind(Include = "Id,Nome,Descricao,Status,Login,Senha,Ip")] Relogio relogio)
 		{
 			if (ModelState.IsValid)
 			{
@@ -259,7 +293,6 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 			}
 			base.Dispose(disposing);
 		}
-
 		private class senhaRelogio
 		{
 			public string username;
