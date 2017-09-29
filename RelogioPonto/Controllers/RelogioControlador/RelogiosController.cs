@@ -183,9 +183,56 @@ namespace RelogioPonto.Controllers.RelogioControlador
 
 
 		}
-		public async System.Threading.Tasks.Task VerificaStatusImpressora()
+		public async Task<ActionResult> VerificaStatusImpressora()
 		{
-			string page = "http://192.168.22.208/InnerRepPlus.html";
+
+			var status = buscarStatus();
+			foreach (var s in status)
+			{
+				var r = db.Relogios.Where(m => m.Ip == s.IP).FirstOrDefault();
+
+				if (r==null)
+				{
+					return  HttpNotFound();
+				}
+
+				if (s.status=="Cheio")
+				{
+					r.Status = Models.Relogio.StatusPapel.Cheio;
+				}
+
+				db.Entry(r).State = EntityState.Modified;
+
+				if (s.status == "Alto")
+				{
+					r.Status = Models.Relogio.StatusPapel.Alto;
+				}
+
+				db.Entry(r).State = EntityState.Modified;
+
+				if (s.status=="Regular")
+				{
+					r.Status = Models.Relogio.StatusPapel.Regular;
+				}
+
+				db.Entry(r).State = EntityState.Modified;
+
+				if (s.status == "Baixo")
+				{
+					r.Status = Models.Relogio.StatusPapel.Baixo;
+				}
+
+				db.Entry(r).State = EntityState.Modified;
+
+
+			}
+			db.SaveChanges();
+			return View();
+		}
+
+		public List<RelogioStatus> buscarStatus  ()
+		{
+			/*string page = "http://192.168.22.208/InnerRepPlus.html";
 			IList<string> Links = new List<string>();
 			using (HttpClient client = new HttpClient())
 			using (HttpResponseMessage response = await client.GetAsync(page))
@@ -194,7 +241,7 @@ namespace RelogioPonto.Controllers.RelogioControlador
 				// ... Read the string.
 				string result = await content.ReadAsStringAsync();
 				//Regex regex1 = new Regex(@"<h4 class=""text-center text-descricao"">(.*?)</h4>", RegexOptions.Singleline);
-				Regex regexTagImg = new Regex(@"<img id=""StatusImpressora""style=""border-radius: 3px 3px 3px 3px""src=""pronta2.jpg""", RegexOptions.Singleline);
+				Regex regexTagImg = new Regex(@"<img id=""statusImpressora""style=""border-radius: 3px 3px 3px 3px""src=""pronta2.jpg""", RegexOptions.Singleline);
 				//var Matches = regex1.Matches(result);
 				var Matche = regexTagImg.Matches(result);
 
@@ -202,7 +249,7 @@ namespace RelogioPonto.Controllers.RelogioControlador
 				foreach (Match m in Matche)
 				{
 					var Matche3 = regexTagImg.Match(result);
-					Links.Add(m.Groups[1].ToString());
+					Links.Add(m.Groups[0].ToString());
 				}
 				int i;
 				i = 1;
@@ -220,12 +267,12 @@ namespace RelogioPonto.Controllers.RelogioControlador
 
 				}
 			}
+			*/
 
-
-
-
+			var status =new List<RelogioStatus>();
+			status.Add(new RelogioStatus { IP = "", status = "" });
+			return status;
 		}
-
 
 
 		// GET: Relogios/Edit/5
@@ -298,6 +345,12 @@ namespace RelogioPonto.Controllers.RelogioControlador
 			public string username;
 			public string password;
 
+		}
+
+		public class RelogioStatus
+		{
+			public string IP { get; set; }
+			public string status { get; set; }
 		}
 	}
 }

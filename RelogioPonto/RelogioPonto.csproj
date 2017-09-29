@@ -275,6 +275,7 @@
     <Content Include="Views\Relogios1\Details.cshtml" />
     <Content Include="Views\Relogios1\Edit.cshtml" />
     <Content Include="Views\Relogios1\Index.cshtml" />
+    <Content Include="Views\Relogios\StatusImpressora.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
