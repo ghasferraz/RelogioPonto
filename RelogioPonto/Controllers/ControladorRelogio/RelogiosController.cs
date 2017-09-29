@@ -140,7 +140,11 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 		public async Task<string> Relogio()
 		{
 			CookieContainer cookies = new CookieContainer();
-			HttpClientHandler handler = new HttpClientHandler();
+			HttpClientHandler handler = new HttpClientHandler
+			{
+				AutomaticDecompression = DecompressionMethods.GZip
+									 | DecompressionMethods.Deflate
+			};
 			handler.CookieContainer = cookies;
 
 			HttpClient client = new HttpClient(handler);
@@ -166,8 +170,7 @@ namespace RelogioPonto.Controllers.ControladorRelogio
 					}
 
 				//	var result = await response.Content.ReadAsStringAsync();
-					uri = new Uri(string.Format("http://192.168.22.208/" + @"InnerRepPlus.html", string.Empty));
-
+					uri = new Uri(string.Format("http://192.168.22.208/" + @"info?_=1506617975243", string.Empty));
 
 					var response2 = await client.GetAsync(uri);
 					if (response2.IsSuccessStatusCode)
