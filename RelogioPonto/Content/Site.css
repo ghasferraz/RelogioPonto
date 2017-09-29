@@ -46,4 +46,37 @@ textarea {
 .paddingtop {
     margin-top: 40px;
 }
+.caixaDetails {
+    border-radius: 25px;
+    box-shadow: 2px 2px 1px 1px gray;
+    background-color: aliceblue;
+    border-top: 6px solid #10afbf;
+    /*overflow: auto;*/
+    padding-bottom: 40px;
+    margin-top: 40px;
+}
+.caixaDetails,h4{
+    margin-left:50px;
+}
+.caixaDelete {
+    border-radius: 25px;
+    box-shadow: 2px 2px 1px 1px gray;
+    background-color: aliceblue;
+    border-top: 6px solid #10afbf;
+    /*overflow: auto;*/
+    padding-bottom: 40px;
+    margin-top: 40px;
+}
+.btnDelete {
+    margin-left: 50px;
+}
 
+.caixaEdit {
+    border-radius: 25px;
+    box-shadow: 2px 2px 1px 1px gray;
+    background-color: aliceblue;
+    border-top: 6px solid #10afbf;
+    /*overflow: auto;*/
+    padding-bottom: 40px;
+    margin-top: 40px;
+}

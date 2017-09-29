@@ -13,16 +13,20 @@ namespace RelogioPonto.Models
 		[Required]
 		public string Nome { get; set; }
 		public string Descricao { get; set; }
-		public enum StatusPapel
-		{
-			Baixo, Regular, Alto, Cheio
-		}
-		[Required]
+
+        public StatusPapel Status { get; set; }
+
+        [Required]
 		public string Login { get; set; }
 		[Required]
 		public string Senha { get; set; }
 		[Required]
 		public string Ip { get; set; }
 
-	}
+
+        public enum StatusPapel
+        {
+            Baixo, Regular, Alto, Cheio
+        }
+    }
 }

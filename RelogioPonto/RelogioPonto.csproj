@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ControladorRelogio\Relogios1Controller.cs" />
     <Compile Include="Controllers\ControladorRelogio\RelogiosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -199,6 +200,10 @@
     <Compile Include="Migrations\201709281509326_migracao inicial.cs" />
     <Compile Include="Migrations\201709281509326_migracao inicial.Designer.cs">
       <DependentUpon>201709281509326_migracao inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709291242004_Adiconar enum.cs" />
+    <Compile Include="Migrations\201709291242004_Adiconar enum.Designer.cs">
+      <DependentUpon>201709291242004_Adiconar enum.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -270,6 +275,11 @@
     <Content Include="Views\Relogios\Details.cshtml" />
     <Content Include="Views\Relogios\Edit.cshtml" />
     <Content Include="Views\Relogios\Index.cshtml" />
+    <Content Include="Views\Relogios1\Create.cshtml" />
+    <Content Include="Views\Relogios1\Delete.cshtml" />
+    <Content Include="Views\Relogios1\Details.cshtml" />
+    <Content Include="Views\Relogios1\Edit.cshtml" />
+    <Content Include="Views\Relogios1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -290,6 +300,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709281509326_migracao inicial.resx">
       <DependentUpon>201709281509326_migracao inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709291242004_Adiconar enum.resx">
+      <DependentUpon>201709291242004_Adiconar enum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -24,8 +24,8 @@
             <hr />
             <h3>IP: @item.Ip</h3>
             <hr />
-
         </div>
+
         @*<div class="col-md-4 ">
             <div>
                 @item.Nome
@@ -42,5 +42,14 @@
         </div>*@
 
     </div>
+
+    <tr>
+        <td>
+            
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td=>
+    </tr>
 }
 
