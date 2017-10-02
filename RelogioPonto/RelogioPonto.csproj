@@ -270,11 +270,6 @@
     <Content Include="Views\Relogios\Details.cshtml" />
     <Content Include="Views\Relogios\Edit.cshtml" />
     <Content Include="Views\Relogios\Index.cshtml" />
-    <Content Include="Views\Relogios1\Create.cshtml" />
-    <Content Include="Views\Relogios1\Delete.cshtml" />
-    <Content Include="Views\Relogios1\Details.cshtml" />
-    <Content Include="Views\Relogios1\Edit.cshtml" />
-    <Content Include="Views\Relogios1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
