@@ -136,6 +136,7 @@ namespace RelogioPonto.Controllers.RelogioControlador
 			{
 				AutomaticDecompression = DecompressionMethods.GZip
 									 | DecompressionMethods.Deflate
+
 			};
 			handler.CookieContainer = cookies;
 
@@ -165,6 +166,9 @@ namespace RelogioPonto.Controllers.RelogioControlador
 					uri = new Uri(string.Format("http://192.168.22.208/" + @"info?_=1506617975243", string.Empty));
 
 					var response2 = await client.GetAsync(uri);
+
+
+
 					if (response2.IsSuccessStatusCode)
 					{
 						var result2 = await response2.Content.ReadAsStringAsync();
@@ -183,6 +187,7 @@ namespace RelogioPonto.Controllers.RelogioControlador
 
 
 		}
+
 		public async Task<ActionResult> VerificaStatusImpressora()
 		{
 
@@ -191,12 +196,12 @@ namespace RelogioPonto.Controllers.RelogioControlador
 			{
 				var r = db.Relogios.Where(m => m.Ip == s.IP).FirstOrDefault();
 
-				if (r==null)
+				if (r == null)
 				{
-					return  HttpNotFound();
+					return HttpNotFound();
 				}
 
-				if (s.status=="Cheio")
+				if (s.status == "Cheio")
 				{
 					r.Status = Models.Relogio.StatusPapel.Cheio;
 				}
@@ -210,7 +215,7 @@ namespace RelogioPonto.Controllers.RelogioControlador
 
 				db.Entry(r).State = EntityState.Modified;
 
-				if (s.status=="Regular")
+				if (s.status == "Regular")
 				{
 					r.Status = Models.Relogio.StatusPapel.Regular;
 				}
@@ -230,7 +235,7 @@ namespace RelogioPonto.Controllers.RelogioControlador
 			return View();
 		}
 
-		public List<RelogioStatus> buscarStatus  ()
+		public List<RelogioStatus> buscarStatus()
 		{
 			/*string page = "http://192.168.22.208/InnerRepPlus.html";
 			IList<string> Links = new List<string>();
@@ -269,7 +274,7 @@ namespace RelogioPonto.Controllers.RelogioControlador
 			}
 			*/
 
-			var status =new List<RelogioStatus>();
+			var status = new List<RelogioStatus>();
 			status.Add(new RelogioStatus { IP = "", status = "" });
 			return status;
 		}
