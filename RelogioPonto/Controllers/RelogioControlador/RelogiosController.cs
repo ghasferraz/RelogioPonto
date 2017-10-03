@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text;
+using System.Diagnostics;
 
 namespace RelogioPonto.Controllers.RelogioControlador
 {
@@ -53,13 +54,9 @@ namespace RelogioPonto.Controllers.RelogioControlador
 		[ValidateAntiForgeryToken]
 		public ActionResult Create([Bind(Include = "Id,Nome,Descricao,Status,Login,Senha,Ip")] Relogio relogio)
 		{
-			
+
 			if (ModelState.IsValid)
 			{
-
-
-				
-
 
 				db.Relogios.Add(relogio);
 				db.SaveChanges();
@@ -69,13 +66,30 @@ namespace RelogioPonto.Controllers.RelogioControlador
 				.Replace("#ip#", relogio.Ip)
 				.Replace("#usuario#", relogio.Login)
 				.Replace("#senha#", relogio.Senha);
+				
+				System.IO.File.WriteAllText(PathArquivo + "/Relogio" + relogio.Id + ".js",
+				arq);
 
-				System.IO.File.WriteAllText(PathArquivo +  "/Relogio" +relogio.Id+".js",
-			    arq);
-				return RedirectToAction("Index");
+				System.IO.File.WriteAllText(PathArquivo + "/Teste.js");
+
+				Process p = new Process();
+
+				if (p.)
+				{
+
 				}
+				
+				
+
+				return RedirectToAction("Index");
+			}
 
 			return View(relogio);
+		}
+		public Boolean VerificaPhantom()
+		{
+
+			return true;
 		}
 		public async System.Threading.Tasks.Task Sincroniza()
 		{
@@ -183,8 +197,8 @@ namespace RelogioPonto.Controllers.RelogioControlador
 					uri = new Uri(string.Format("http://192.168.22.208/" + @"info?_=1506617975243", string.Empty));
 
 					var response2 = await client.GetAsync(uri);
-					
-					
+
+
 
 
 					if (response2.IsSuccessStatusCode)
