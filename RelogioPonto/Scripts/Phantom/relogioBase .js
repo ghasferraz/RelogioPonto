@@ -1,6 +1,14 @@
+var args = require('system').args;
+if (args.length != 4) {
+    console.log("numero invalido de parametros");
+    phantom.exit();
 
-  
-
+} else {
+    var ip = args[1];
+    var usuario = args[2];
+    var senha = args[3];
+  //  console.log(usuario);
+   // console.log(senha);
     var page = require('webpage').create();
     page.onConsoleMessage = function (msg) {
         phantom.outputEncoding = "utf-8";
@@ -16,20 +24,21 @@
         loadInProgress = false;
         console.log("load finished");
     };
-    page.open("http://"+#ip#, function (status) {
-    
+    page.open(ip, function (status, usuario,senha) {
+        console.log(usuario);
         console.log("Status: " + status);
         if (status === "success") {
             page.render('example.png');
-            page.evaluate(function () {
+            page.evaluate(function (usuario, senha) {
 
-        
+                console.log(usuario);
+                console.log(senha);
 
                 a = document.getElementById("username");
-                a.value = #usuario#;
+                a.value = usuario;
 
                 a = document.getElementById("password");
-                a.value = #senha#;
+                a.value = senha;
 
                 a = document.getElementById("entrar");
                 a.click();
@@ -42,7 +51,7 @@
                 if (!loadInProgress) {
                     console.log("getInfo");
 
-                    page.open("http://"+#ip# + "/info", function () {
+                    page.open(ip + "/info", function () {
                         console.log("Passei aqui");
                         var jsonSource = page.plainText;
                         console.log(jsonSource);
@@ -56,6 +65,6 @@
             }, 15750);
         }
 
-    });
+    }, usuario,senha);
     
-
+}
