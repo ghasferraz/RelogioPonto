@@ -16,7 +16,7 @@
         loadInProgress = false;
         console.log("load finished");
     };
-    page.open("http://"+#ip#, function (status) {
+    page.open(#ip#, function (status) {
     
         console.log("Status: " + status);
         if (status === "success") {
@@ -42,7 +42,7 @@
                 if (!loadInProgress) {
                     console.log("getInfo");
 
-                    page.open("http://"+#ip# + "/info", function () {
+                    page.open(#ip# + "/info", function () {
                         console.log("Passei aqui");
                         var jsonSource = page.plainText;
                         console.log(jsonSource);
