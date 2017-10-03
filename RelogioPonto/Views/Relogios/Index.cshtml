@@ -3,12 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<br>
 <h2>QUANTIDADE PAPEL RELÓGIO DE PONTO</h2>
+<br>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2 align="center">
+    @Html.ActionLink("CRIAR NOVO STATUS DE RELÓGIO", "Create")
+</h2>
 
 
 
@@ -43,14 +44,15 @@
         </div>*@
 
     </div>
+    
+        <tr>
+            <td>
 
-    <tr>
-        <td>
-            
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td=>
-    </tr>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    
 }
 
