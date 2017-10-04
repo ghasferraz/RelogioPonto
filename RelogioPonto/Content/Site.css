@@ -23,7 +23,7 @@ textarea {
     max-width: 280px;
 }
 
-.caixa {
+/*.caixa {
     border-radius: 25px;
     box-shadow: 2px 2px 1px 1px gray;
     background-color: aliceblue;
@@ -31,16 +31,39 @@ textarea {
     overflow: auto;
     padding-bottom: 40px;
     margin-top:40px;
+}*/
+
+.caixa {
+    border-radius: 25px;
+    box-shadow: 5px 5px 25px 5px rgba(46,61,73,0.2);
+    /*box-shadow: 2px 2px 1px 1px gray;*/
+    background-color: rgba(123, 183, 243, 0.2);
+    border-top: 6px solid #10afbf;
+    overflow: auto;
+    margin-top: 40px;
+    padding-bottom: 30px;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-color: #b3caee;
 }
 
 .caixaCreate {
     border-radius: 25px;
-    box-shadow: 2px 2px 1px 1px gray;
-    background-color: aliceblue;
-    border-top:6px solid #10afbf;
-    /*overflow: auto;*/
-    padding-bottom: 40px;
+    box-shadow: 5px 5px 25px 5px rgba(46,61,73,0.2);
+    /*box-shadow: 2px 2px 1px 1px gray;*/
+    background-color: rgba(123, 183, 243, 0.2);
+    border-top: 6px solid #10afbf;
+   
     margin-top: 40px;
+    padding-bottom: 30px;
 }
 
 #VoltarLista{
@@ -53,25 +76,26 @@ textarea {
 }
 .caixaDetails {
     border-radius: 25px;
-    box-shadow: 2px 2px 1px 1px gray;
-    background-color: aliceblue;
+    box-shadow: 5px 5px 25px 5px rgba(46,61,73,0.2);
+    /*box-shadow: 2px 2px 1px 1px gray;*/
+    background-color: rgba(123, 183, 243, 0.2);
     border-top: 6px solid #10afbf;
-    /*overflow: auto;*/
-    padding-bottom: 40px;
+    overflow: auto;
     margin-top: 40px;
+    padding-bottom: 30px;
 }
 .caixaDetails,h4{
     margin-left:50px;
 }
 .caixaDeletar {
     border-radius: 25px;
-    box-shadow: 2px 2px 1px 1px gray;
-    background-color: aliceblue;
+    box-shadow: 5px 5px 25px 5px rgba(46,61,73,0.2);
+    /*box-shadow: 2px 2px 1px 1px gray;*/
+    background-color: rgba(123, 183, 243, 0.2);
     border-top: 6px solid #10afbf;
-    /*overflow: auto;*/
-    padding-bottom: 40px;
-    padding-top:10px;
+    overflow: auto;
     margin-top: 40px;
+    padding-bottom: 30px;
 }
 
 #btnDeletar {
@@ -83,10 +107,11 @@ textarea {
 
 .caixaEdit {
     border-radius: 25px;
-    box-shadow: 2px 2px 1px 1px gray;
-    background-color: aliceblue;
+    box-shadow: 5px 5px 25px 5px rgba(46,61,73,0.2);
+    /*box-shadow: 2px 2px 1px 1px gray;*/
+    background-color: rgba(123, 183, 243, 0.2);
     border-top: 6px solid #10afbf;
     /*overflow: auto;*/
-    padding-bottom: 40px;
     margin-top: 40px;
+    padding-bottom: 30px;
 }

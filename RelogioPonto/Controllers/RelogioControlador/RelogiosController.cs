@@ -70,14 +70,14 @@ namespace RelogioPonto.Controllers.RelogioControlador
 				System.IO.File.WriteAllText(PathArquivo + "/Relogio" + relogio.Id + ".js",
 				arq);
 
-				System.IO.File.WriteAllText(PathArquivo + "/Teste.js");
+				//System.IO.File.WriteAllText(PathArquivo + "/Teste.js");
 
 				Process p = new Process();
 
-				if (p.)
-				{
+				//if (p.)
+				//{
 
-				}
+				//}
 				
 				
 
