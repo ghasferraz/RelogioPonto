@@ -16,23 +16,23 @@
         loadInProgress = false;
         //console.log("load finished");
     };
-    page.open("http://#ip#", function (status) {
+    page.open("http://192.168.22.206", function (status) {
 
         //  console.log("Status: " + status);
         var check1 = page.evaluate(function () {
             return document.title
         });
-        if (status === "success" && check1 =="Login | Inner Rep Plus") {
+        if (status === "success" && check1=="Inner Rep Plus") {
           //  page.render('example.png');
             page.evaluate(function () {
 
         
 
                 a = document.getElementById("username");
-                a.value = "#usuario#";
+                a.value = "ADMIN";
 
                 a = document.getElementById("password");
-                a.value = "#senha#";
+                a.value = "180516";
 
                 a = document.getElementById("entrar");
                 a.click();
@@ -45,7 +45,7 @@
                 if (!loadInProgress) {
                   //  console.log("getInfo");
 
-                    page.open("http://#ip#/info", function () {
+                    page.open("http://192.168.22.206/info", function () {
                       //  console.log("Passei aqui");
                         var jsonSource = page.plainText;
                         //console.log(jsonSource);

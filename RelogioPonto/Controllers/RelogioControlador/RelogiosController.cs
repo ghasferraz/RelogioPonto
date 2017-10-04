@@ -66,21 +66,43 @@ namespace RelogioPonto.Controllers.RelogioControlador
 				.Replace("#ip#", relogio.Ip)
 				.Replace("#usuario#", relogio.Login)
 				.Replace("#senha#", relogio.Senha);
-				
+
+
 				System.IO.File.WriteAllText(PathArquivo + "/Relogio" + relogio.Id + ".js",
 				arq);
 
-				System.IO.File.WriteAllText(PathArquivo + "/Teste.js");
+				System.IO.File.WriteAllText(PathArquivo + "/TestePhantom.js", arq);
 
-				Process p = new Process();
+				
 
-				if (p.)
+				try
 				{
 
+						Process exeProcess = new Process();
+						ProcessStartInfo startInfo = new ProcessStartInfo();
+						startInfo.UseShellExecute = false;
+					    startInfo.RedirectStandardOutput = true;
+						string FileName = PathArquivo + "\\relogio.js ";
+						startInfo.FileName = "Phantomjs ";
+						startInfo.Arguments = FileName;
+						exeProcess.StartInfo = startInfo;
+					    exeProcess.Start();
+						var a = exeProcess.StandardOutput.ReadToEnd();
+						exeProcess.WaitForExit();
+
+
+					
+				}
+				catch (HttpException ex)
+				{
+					/*if (startInfo.Arguments != arq)
+					{
+						bool v = !VerificaPhantom();
+
+					}*/
+					throw ex;
 				}
 				
-				
-
 				return RedirectToAction("Index");
 			}
 
