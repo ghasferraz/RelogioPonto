@@ -9,18 +9,18 @@
 
     page.onLoadStarted = function () {
         loadInProgress = true;
-        console.log("load started");
+       // console.log("load started");
     };
 
     page.onLoadFinished = function () {
         loadInProgress = false;
-        console.log("load finished");
+        //console.log("load finished");
     };
-    page.open("http://192.168.22.208", function (status) {
+    page.open("http://192.168.22.206", function (status) {
     
-        console.log("Status: " + status);
+      //  console.log("Status: " + status);
         if (status === "success") {
-            page.render('example.png');
+          //  page.render('example.png');
             page.evaluate(function () {
 
         
@@ -35,17 +35,17 @@
                 a.click();
 
             });
-            page.render('example2.png');
+           // page.render('example2.png');
             interval = setInterval(function () {
-                console.log("Interval ");
+           //     console.log("Interval ");
 
                 if (!loadInProgress) {
-                    console.log("getInfo");
+                  //  console.log("getInfo");
 
-                    page.open("http://192.168.22.208/info", function () {
-                        console.log("Passei aqui");
+                    page.open("http://192.168.22.206/info", function () {
+                      //  console.log("Passei aqui");
                         var jsonSource = page.plainText;
-                        console.log(jsonSource);
+                        //console.log(jsonSource);
                         var resultObject = JSON.parse(jsonSource);
                         console.log(resultObject.info[0].statusImpressora);
                         phantom.exit();

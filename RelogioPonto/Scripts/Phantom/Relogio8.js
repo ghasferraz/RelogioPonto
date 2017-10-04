@@ -16,7 +16,7 @@
         loadInProgress = false;
         console.log("load finished");
     };
-    page.open("http://192.168.22.208", function (status) {
+    page.open("http://"+192.168.22.208, function (status) {
     
         console.log("Status: " + status);
         if (status === "success") {
@@ -26,10 +26,10 @@
         
 
                 a = document.getElementById("username");
-                a.value = "ADMIN";
+                a.value = ADMIN;
 
                 a = document.getElementById("password");
-                a.value = "180516";
+                a.value = 180516;
 
                 a = document.getElementById("entrar");
                 a.click();
@@ -42,7 +42,7 @@
                 if (!loadInProgress) {
                     console.log("getInfo");
 
-                    page.open("http://192.168.22.208/info", function () {
+                    page.open("http://"+192.168.22.208 + "/info", function () {
                         console.log("Passei aqui");
                         var jsonSource = page.plainText;
                         console.log(jsonSource);
